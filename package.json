@@ -1,0 +1,1 @@
+{"description":"BeruangGuard — a wallet & transaction guard agent that screens ERC-20 approvals on BSC before you sign them.","engines":{"node":">=20"},"license":"MIT","main":"server.js","name":"beruangguard","private":true,"scripts":{"start":"node server.js"},"version":"1.0.0"}
