@@ -4,6 +4,9 @@
 
 An Agent Games (zkVerify) Wildcard-track entry.
 
+**Live demo:** https://kaviifa.github.io/beruangguard/ — runs entirely in your
+browser against public BSC RPC endpoints. No server, no API key.
+
 ## The problem
 
 Token approvals are the quietest way wallets get drained. A dApp asks you to
