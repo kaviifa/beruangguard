@@ -12,6 +12,21 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers, body: '' };
   }
+  // GET returns endpoint info (200), not 405: submission platforms often
+  // liveness-check an agent endpoint with a plain GET before accepting it.
+  if (event.httpMethod === 'GET') {
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({
+        ok: true,
+        agent: 'BeruangGuard',
+        endpoint: '/screen',
+        method: 'POST',
+        usage: 'POST {chainId: 56, token: "0x...", spender: "0x...", amount: "100000000" | "unlimited"}',
+      }),
+    };
+  }
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'method not allowed' }) };
   }
