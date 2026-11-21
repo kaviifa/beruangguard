@@ -1,0 +1,16 @@
+# Netlify: static demo from public/ + serverless functions.
+# Clean endpoint URLs: /health and /screen rewrite (200, method + body preserved)
+# to the functions, so the Agent Games form can use <site>/screen directly.
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/screen"
+  to = "/.netlify/functions/screen"
+  status = 200
